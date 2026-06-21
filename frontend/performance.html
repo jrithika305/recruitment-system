@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HireAI - My Performance</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
+    body { background:#F8FAFC; color:#1E293B; display:flex; min-height:100vh; }
+    .sidebar { width:240px; background:#1E293B; min-height:100vh; padding:24px 0; position:fixed; top:0; left:0; }
+    .sidebar-logo { font-size:22px; font-weight:700; color:#2563EB; padding:0 24px 24px; border-bottom:1px solid #334155; }
+    .sidebar-role { font-size:11px; color:#F59E0B; padding:10px 24px 0; text-transform:uppercase; letter-spacing:1px; }
+    .menu-label { font-size:11px; color:#64748B; padding:0 24px; margin:16px 0 8px; text-transform:uppercase; letter-spacing:1px; }
+    .menu-item { display:flex; align-items:center; gap:12px; padding:12px 24px; color:#94A3B8; text-decoration:none; font-size:14px; cursor:pointer; transition:all 0.2s; }
+    .menu-item:hover { background:#334155; color:white; }
+    .menu-item.active { background:#2563EB; color:white; }
+    .menu-icon { font-size:18px; width:20px; }
+    .main { margin-left:240px; flex:1; display:flex; flex-direction:column; }
+    .topbar { background:white; padding:16px 32px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #E2E8F0; }
+    .topbar h2 { font-size:20px; font-weight:700; }
+    .topbar p { font-size:13px; color:#64748B; }
+    .content { padding:32px; }
+    .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:20px; margin-bottom:28px; }
+    .stat-card { background:white; border-radius:12px; border:1px solid #E2E8F0; padding:20px; text-align:center; }
+    .stat-icon { font-size:28px; margin-bottom:8px; }
+    .stat-value { font-size:26px; font-weight:700; }
+    .stat-label { font-size:12px; color:#64748B; margin-top:4px; }
+    .card { background:white; border-radius:12px; border:1px solid #E2E8F0; padding:24px; margin-bottom:24px; }
+    .card h3 { font-size:16px; font-weight:600; margin-bottom:20px; }
+    .skill-row { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+    .skill-name { font-size:13px; color:#1E293B; width:150px; flex-shrink:0; }
+    .skill-bar-wrap { flex:1; background:#F1F5F9; border-radius:99px; height:10px; overflow:hidden; }
+    .skill-bar { height:100%; border-radius:99px; background:#2563EB; transition:width 1s; }
+    .skill-pct { font-size:13px; font-weight:600; width:36px; text-align:right; }
+    .interview-item { display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid #F1F5F9; }
+    .interview-item:last-child { border-bottom:none; }
+    .interview-date { width:48px; height:52px; background:#EFF6FF; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; }
+    .interview-date .day { font-size:18px; font-weight:700; color:#2563EB; line-height:1; }
+    .interview-date .month { font-size:11px; color:#64748B; }
+    .interview-info { flex:1; }
+    .interview-info h4 { font-size:14px; font-weight:600; }
+    .interview-info p { font-size:12px; color:#64748B; margin-top:2px; }
+    .score-badge { padding:4px 12px; border-radius:99px; font-size:12px; font-weight:600; }
+    .score-high { background:#D1FAE5; color:#065F46; }
+    .score-mid { background:#FEF3C7; color:#92400E; }
+    .score-low { background:#FEE2E2; color:#991B1B; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:24px; }
+    .score-circle-big { width:120px; height:120px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; margin:0 auto 20px; }
+    .back-btn { padding:8px 18px; border:1.5px solid #E2E8F0; border-radius:8px; background:white; font-size:13px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-logo">HireAI</div>
+    <div class="sidebar-role">Candidate Portal</div>
+    <div style="margin-top:16px;">
+      <div class="menu-label">My Account</div>
+      <a class="menu-item" href="candidate-portal.html"><span class="menu-icon">🏠</span>Dashboard</a>
+      <a class="menu-item" href="#"><span class="menu-icon">👤</span>My Profile</a>
+      <a class="menu-item" href="#"><span class="menu-icon">📄</span>My Resume</a>
+      <div class="menu-label">Interview</div>
+      <a class="menu-item" href="#"><span class="menu-icon">📅</span>My Schedule</a>
+      <a class="menu-item" href="mock-interview.html"><span class="menu-icon">🤖</span>Mock Interview</a>
+      <a class="menu-item active" href="performance.html"><span class="menu-icon">📊</span>My Performance</a>
+      <div class="menu-label">Support</div>
+      <a class="menu-item" href="feedback.html"><span class="menu-icon">💬</span>Feedback</a>
+      <a class="menu-item" href="login.html"><span class="menu-icon">🚪</span>Logout</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h2>My Performance</h2>
+        <p>Track your interview scores and progress</p>
+      </div>
+      <button class="back-btn" onclick="window.location.href='candidate-portal.html'">← Back</button>
+    </div>
+
+    <div class="content">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-value" style="color:#2563EB;">7.8</div>
+          <div class="stat-label">Average Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🤖</div>
+          <div class="stat-value" style="color:#10B981;">5</div>
+          <div class="stat-label">Mock Interviews</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📈</div>
+          <div class="stat-value" style="color:#8B5CF6;">+12%</div>
+          <div class="stat-label">Improvement</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-value" style="color:#F59E0B;">8.2</div>
+          <div class="stat-label">Best Score</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Overall Performance</h3>
+          <div class="score-circle-big" style="background:#EFF6FF;">
+            <div style="font-size:36px;font-weight:800;color:#2563EB;">7.8</div>
+            <div style="font-size:12px;color:#64748B;">Overall</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Confidence</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%;"></div></div>
+            <div class="skill-pct">7.8</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Communication</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%;background:#10B981;"></div></div>
+            <div class="skill-pct">8.2</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Technical</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:71%;background:#8B5CF6;"></div></div>
+            <div class="skill-pct">7.1</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Aptitude</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%;background:#F59E0B;"></div></div>
+            <div class="skill-pct">7.5</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Skill Analysis</h3>
+          <div class="skill-row">
+            <div class="skill-name">React.js</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%;"></div></div>
+            <div class="skill-pct">85%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%;"></div></div>
+            <div class="skill-pct">80%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Problem Solving</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:72%;background:#10B981;"></div></div>
+            <div class="skill-pct">72%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Communication</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%;background:#8B5CF6;"></div></div>
+            <div class="skill-pct">78%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Leadership</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%;background:#F59E0B;"></div></div>
+            <div class="skill-pct">65%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name">Teamwork</div>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%;background:#EF4444;"></div></div>
+            <div class="skill-pct">90%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Interview History</h3>
+        <div class="interview-item">
+          <div class="interview-date"><div class="day">24</div><div class="month">MAY</div></div>
+          <div class="interview-info">
+            <h4>HR Interview — Mock Session 1</h4>
+            <p>Confidence: 7.5 · Communication: 8.0 · Technical: 7.2</p>
+          </div>
+          <span class="score-badge score-high">7.6 / 10</span>
+        </div>
+        <div class="interview-item">
+          <div class="interview-date"><div class="day">26</div><div class="month">MAY</div></div>
+          <div class="interview-info">
+            <h4>Technical Interview — Mock Session 2</h4>
+            <p>Confidence: 7.0 · Communication: 7.5 · Technical: 8.2</p>
+          </div>
+          <span class="score-badge score-high">7.6 / 10</span>
+        </div>
+        <div class="interview-item">
+          <div class="interview-date"><div class="day">28</div><div class="month">MAY</div></div>
+          <div class="interview-info">
+            <h4>Communication Skills — Mock Session 3</h4>
+            <p>Confidence: 8.0 · Communication: 8.5 · Technical: 7.0</p>
+          </div>
+          <span class="score-badge score-high">7.8 / 10</span>
+        </div>
+        <div class="interview-item">
+          <div class="interview-date"><div class="day">30</div><div class="month">MAY</div></div>
+          <div class="interview-info">
+            <h4>Aptitude Round — Mock Session 4</h4>
+            <p>Confidence: 7.8 · Communication: 7.2 · Technical: 6.5</p>
+          </div>
+          <span class="score-badge score-mid">7.2 / 10</span>
+        </div>
+        <div class="interview-item">
+          <div class="interview-date"><div class="day">01</div><div class="month">JUN</div></div>
+          <div class="interview-info">
+            <h4>HR Interview — Mock Session 5</h4>
+            <p>Confidence: 8.2 · Communication: 8.5 · Technical: 7.8</p>
+          </div>
+          <span class="score-badge score-high">8.2 / 10</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

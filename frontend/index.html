@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HireAI - Smart Recruitment Platform</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #F8FAFC;
+      color: #1E293B;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      background: #ffffff;
+      padding: 16px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #E2E8F0;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #2563EB;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1E293B;
+      margin-left: 28px;
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: #2563EB;
+    }
+
+    .nav-btn {
+      background: #2563EB;
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: #EFF6FF;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero h1 span {
+      color: #2563EB;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #64748B;
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #2563EB;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #2563EB;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      border: 2px solid #2563EB;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      padding: 80px 60px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: #64748B;
+      font-size: 16px;
+      margin-bottom: 48px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: white;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: left;
+    }
+
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #1E293B;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #64748B;
+      line-height: 1.6;
+    }
+
+    /* ── STATS ── */
+    .stats {
+      background: #2563EB;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat h2 {
+      font-size: 40px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .stat p {
+      font-size: 15px;
+      color: #BFDBFE;
+      margin-top: 6px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1E293B;
+      color: #94A3B8;
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">HireAI</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+      <a href="login.html" class="nav-btn">Login</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Smart Hiring with <span>AI Power</span></h1>
+    <p>Manage recruitment, track candidates, schedule interviews and practice with our AI Voice Assistant — all in one platform.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">Get Started</a>
+      <a href="#" class="btn-secondary">Watch Demo</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-subtitle">One platform for HR teams and candidates</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>AI Voice Assistant</h3>
+        <p>Practice mock interviews with our AI. Get instant feedback on confidence, grammar and communication.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Analytics Dashboard</h3>
+        <p>Track hiring trends, candidate performance and department-wise recruitment reports in real time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📄</div>
+        <h3>Resume Screening</h3>
+        <p>Upload and parse resumes automatically. Extract skills and calculate ATS scores instantly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <h3>Interview Scheduling</h3>
+        <p>Schedule and manage interviews with a built-in calendar. Send automatic email notifications.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat"><h2>500+</h2><p>Companies Using HireAI</p></div>
+    <div class="stat"><h2>12,000+</h2><p>Interviews Conducted</p></div>
+    <div class="stat"><h2>98%</h2><p>Hiring Success Rate</p></div>
+    <div class="stat"><h2>3x</h2><p>Faster Recruitment</p></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2024 HireAI. All rights reserved. Built for smarter recruitment.</p>
+  </footer>
+
+</body>
+</html>

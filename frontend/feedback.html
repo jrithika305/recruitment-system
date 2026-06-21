@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HireAI - Feedback</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
+    body { background:#F8FAFC; color:#1E293B; display:flex; min-height:100vh; }
+    .sidebar { width:240px; background:#1E293B; min-height:100vh; padding:24px 0; position:fixed; top:0; left:0; }
+    .sidebar-logo { font-size:22px; font-weight:700; color:#2563EB; padding:0 24px 24px; border-bottom:1px solid #334155; }
+    .sidebar-role { font-size:11px; color:#F59E0B; padding:10px 24px 0; text-transform:uppercase; letter-spacing:1px; }
+    .menu-label { font-size:11px; color:#64748B; padding:0 24px; margin:16px 0 8px; text-transform:uppercase; letter-spacing:1px; }
+    .menu-item { display:flex; align-items:center; gap:12px; padding:12px 24px; color:#94A3B8; text-decoration:none; font-size:14px; cursor:pointer; transition:all 0.2s; }
+    .menu-item:hover { background:#334155; color:white; }
+    .menu-item.active { background:#2563EB; color:white; }
+    .menu-icon { font-size:18px; width:20px; }
+    .main { margin-left:240px; flex:1; display:flex; flex-direction:column; }
+    .topbar { background:white; padding:16px 32px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #E2E8F0; }
+    .topbar h2 { font-size:20px; font-weight:700; }
+    .topbar p { font-size:13px; color:#64748B; }
+    .content { padding:32px; }
+    .card { background:white; border-radius:12px; border:1px solid #E2E8F0; padding:24px; margin-bottom:24px; }
+    .card h3 { font-size:16px; font-weight:600; margin-bottom:20px; }
+    .feedback-item { padding:16px; background:#F8FAFC; border-radius:10px; margin-bottom:12px; border-left:4px solid #2563EB; }
+    .feedback-item h4 { font-size:14px; font-weight:600; margin-bottom:6px; }
+    .feedback-item p { font-size:13px; color:#64748B; line-height:1.6; }
+    .feedback-meta { display:flex; gap:12px; margin-top:8px; }
+    .feedback-tag { font-size:11px; padding:3px 10px; border-radius:99px; }
+    .form-group { margin-bottom:16px; }
+    .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
+    .form-group input, .form-group textarea, .form-group select { width:100%; padding:12px 16px; border:1.5px solid #E2E8F0; border-radius:8px; font-size:14px; outline:none; color:#1E293B; }
+    .form-group textarea { height:120px; resize:vertical; }
+    .submit-btn { padding:12px 32px; background:#2563EB; color:white; border:none; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; }
+    .stars { display:flex; gap:8px; margin-bottom:16px; }
+    .star { font-size:28px; cursor:pointer; color:#E2E8F0; transition:color 0.2s; }
+    .star.active { color:#F59E0B; }
+    .back-btn { padding:8px 18px; border:1.5px solid #E2E8F0; border-radius:8px; background:white; font-size:13px; cursor:pointer; }
+    .success-msg { display:none; background:#D1FAE5; border:1px solid #6EE7B7; border-radius:8px; padding:12px 16px; font-size:14px; color:#065F46; margin-bottom:16px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-logo">HireAI</div>
+    <div class="sidebar-role">Candidate Portal</div>
+    <div style="margin-top:16px;">
+      <div class="menu-label">My Account</div>
+      <a class="menu-item" href="candidate-portal.html"><span class="menu-icon">🏠</span>Dashboard</a>
+      <a class="menu-item" href="#"><span class="menu-icon">👤</span>My Profile</a>
+      <a class="menu-item" href="#"><span class="menu-icon">📄</span>My Resume</a>
+      <div class="menu-label">Interview</div>
+      <a class="menu-item" href="#"><span class="menu-icon">📅</span>My Schedule</a>
+      <a class="menu-item" href="mock-interview.html"><span class="menu-icon">🤖</span>Mock Interview</a>
+      <a class="menu-item" href="performance.html"><span class="menu-icon">📊</span>My Performance</a>
+      <div class="menu-label">Support</div>
+      <a class="menu-item active" href="feedback.html"><span class="menu-icon">💬</span>Feedback</a>
+      <a class="menu-item" href="login.html"><span class="menu-icon">🚪</span>Logout</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h2>Feedback</h2>
+        <p>View your interview feedback and share your experience</p>
+      </div>
+      <button class="back-btn" onclick="window.location.href='candidate-portal.html'">← Back</button>
+    </div>
+
+    <div class="content">
+
+      <div class="card">
+        <h3>Interview Feedback from HR</h3>
+        <div class="feedback-item" style="border-left-color:#10B981;">
+          <h4>Technical Round — 26 May 2024</h4>
+          <p>Strong understanding of React.js and JavaScript fundamentals. Good problem solving approach. Could improve on system design concepts. Overall a strong candidate for the frontend role.</p>
+          <div class="feedback-meta">
+            <span class="feedback-tag" style="background:#D1FAE5;color:#065F46;">Technical: 8/10</span>
+            <span class="feedback-tag" style="background:#EFF6FF;color:#1D4ED8;">Communication: 7/10</span>
+            <span class="feedback-tag" style="background:#FEF3C7;color:#92400E;">Confidence: 7.5/10</span>
+          </div>
+        </div>
+        <div class="feedback-item" style="border-left-color:#2563EB;">
+          <h4>HR Round — 30 May 2024</h4>
+          <p>Excellent communication skills and cultural fit. Shows great enthusiasm for the role. Career goals are well aligned with company vision. Recommended for final round.</p>
+          <div class="feedback-meta">
+            <span class="feedback-tag" style="background:#D1FAE5;color:#065F46;">Communication: 9/10</span>
+            <span class="feedback-tag" style="background:#EFF6FF;color:#1D4ED8;">Attitude: 9/10</span>
+            <span class="feedback-tag" style="background:#FEF3C7;color:#92400E;">Preparation: 8/10</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Share Your Experience</h3>
+        <div class="success-msg" id="success-msg">
+          Thank you for your feedback! We appreciate your response.
+        </div>
+        <div class="form-group">
+          <label>Rate your interview experience</label>
+          <div class="stars" id="stars">
+            <span class="star" onclick="rateStar(1)">★</span>
+            <span class="star" onclick="rateStar(2)">★</span>
+            <span class="star" onclick="rateStar(3)">★</span>
+            <span class="star" onclick="rateStar(4)">★</span>
+            <span class="star" onclick="rateStar(5)">★</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Interview Type</label>
+          <select id="feedback-type">
+            <option>HR Round</option>
+            <option>Technical Round</option>
+            <option>Mock Interview</option>
+            <option>Final Round</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Feedback</label>
+          <textarea id="feedback-text" placeholder="Share your experience about the interview process..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Suggestions for improvement</label>
+          <textarea id="feedback-suggestions" placeholder="Any suggestions to improve the interview process..." style="height:80px;"></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitFeedback()">Submit Feedback</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var selectedRating = 0;
+
+    function rateStar(num) {
+      selectedRating = num;
+      var stars = document.querySelectorAll('.star');
+      stars.forEach(function(star, index) {
+        star.classList.toggle('active', index < num);
+      });
+    }
+
+    function submitFeedback() {
+      var text = document.getElementById('feedback-text').value.trim();
+      if (!text) {
+        alert('Please write your feedback!');
+        return;
+      }
+      if (selectedRating === 0) {
+        alert('Please rate your experience!');
+        return;
+      }
+      document.getElementById('success-msg').style.display = 'block';
+      document.getElementById('feedback-text').value = '';
+      document.getElementById('feedback-suggestions').value = '';
+      selectedRating = 0;
+      document.querySelectorAll('.star').forEach(function(s) {
+        s.classList.remove('active');
+      });
+      setTimeout(function() {
+        document.getElementById('success-msg').style.display = 'none';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
