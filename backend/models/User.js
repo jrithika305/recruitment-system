@@ -19,6 +19,16 @@ const userSchema = new mongoose.Schema({
     enum: ['admin', 'hr', 'candidate'],
     default: 'candidate'
   },
+  isVerified: {
+    type: Boolean,
+    default: false
+  },
+  verificationToken: {
+    type: String
+  },
+  verificationExpires: {
+    type: Date
+  },
   createdAt: {
     type: Date,
     default: Date.now
